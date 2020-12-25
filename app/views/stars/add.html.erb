@@ -1,0 +1,17 @@
+<h1 class="display-4 text-primary">Stars#add</h1>
+<p><%= @msg %></p>
+<%= form_for(@star, url:{controller:'stars', action:'create'}) do |form| %>
+<div class="form_group">
+    <label for="name">name</label>
+    <%= form.text_field :name, class:"form-control" %>
+</div>
+<div class="form_group">
+    <label for="age">age</label>
+    <%= form.text_field :age, class:"form-control" %>
+</div>
+<div class="form_group">
+    <label for="mail">mail</label>
+    <%= form.text_field :mail, class:"form-control" %>
+</div>
+<%= form.submit class:"btn btn-primary" %>
+<% end %>
