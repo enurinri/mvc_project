@@ -1,4 +1,6 @@
 class StarsController < ApplicationController
+  layout 'stars'
+
   def index
     @msg='Star Data.'
     @data=Star.all
@@ -36,6 +38,14 @@ class StarsController < ApplicationController
     obj=Star.find(params[:id])
     obj.destroy
     redirect_to '/stars'
+  end
+
+  def find
+    @msg='explore for search words'
+    @stars=Array.new
+    if request.post? then
+      @stars=Star.where "age >= ?", params[:find]
+    end
   end
 
   private 
